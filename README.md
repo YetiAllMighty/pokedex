@@ -11,6 +11,8 @@
 
     All you really need are the pokemon sprites from [Veekun](https://veekun.com/dex/downloads)
     Place the sprites from pokemon\main-sprites\black-white\ => ./imgs
+    
+   Oh and update the ```connectvars.php``` with your MySQL host, password, username, and database. 
 
 
 ## License
