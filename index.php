@@ -16,7 +16,7 @@
         $search = mysqli_real_escape_string($dbc, trim($_POST['search']));
         $mod = $_POST['mod'];
         if($mod == "Name"){
-            $query = "SELECT * FROM pokedex WHERE identifier LIKE '$search' ORDER BY species_id";
+            $query = "SELECT * FROM pokedex WHERE identifier LIKE '%$search%' ORDER BY species_id";
         } else {
             $query = "SELECT * FROM pokedex WHERE $mod LIKE '$search' ORDER BY species_id";
         }
