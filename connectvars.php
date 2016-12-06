@@ -1,6 +1,6 @@
 <?php
-    define('USER', '');
-    define('HOST', '');
-    define('PW', '');
-    define('DB', '');
+    $DB = getenv('DB');
+    $USER = getenv('USER');
+    $PW = getenv('PW');
+    $HOST = getenv('HOST');
 ?>
