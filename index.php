@@ -1,11 +1,17 @@
 <?php
     require_once('header.php');
-    require_once('connectvars.php');
+//     require_once('connectvars.php');
     require_once('nav.php');
+    $url = getenv('JAWSDB_URL');
+    $dbparts = parse_url($url);
 
+    $host = $dbparts['host'];
+    $user = $dbparts['user'];
+    $pw = $dbparts['pass'];
+    $db = ltrim($dbparts['path'],'/');
     $title = 'Pokédex';
     if(isset($_POST['submit'])){
-        $dbc = mysqli_connect(HOST, USER, PW, DB)
+        $dbc = mysqli_connect($host, $user, $pw, $db)
                 or die('Unable to connect to database, please try again');
         $search = mysqli_real_escape_string($dbc, trim($_POST['search']));
         $mod = $_POST['mod'];
