@@ -1,15 +1,16 @@
 <?php
     require_once('header.php');
-//     require_once('connectvars.php');
     require_once('nav.php');
+    require_once('connectvars.php');
+    require_once('typestr.php');
+    //Currently set up to use connect vars or whatever url you pass
     $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
 
-    $host = $dbparts['host'];
-    $user = $dbparts['user'];
-    $pw = $dbparts['pass'];
-    $db = ltrim($dbparts['path'],'/');
-    $title = 'Pokédex';
+    $host = $dbparts['host'] ?: HOST;
+    $user = $dbparts['user'] ?: USER;
+    $pw = $dbparts['pass'] ?: PW;
+    $db = ltrim($dbparts['path'],'/') ?: DB;
     if(isset($_POST['submit'])){
         $dbc = mysqli_connect($host, $user, $pw, $db)
                 or die('Unable to connect to database, please try again');
@@ -52,22 +53,30 @@
                echo '<div class="progress"><div class="'. $progress_class .'" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:' . $hp_len .'%">' . $row['Health'] . '</div></div>';//#8#8x#9#9x
                echo '<strong>Attack</strong>:' . $row['Attack'] . ' <strong>Defense</strong>: ' . $row['Defense'];
                echo '<br><strong>Speed</strong>: ' . $row['speed'] . ' <strong>S-Attack</strong>: ' . $row['sattack'] .  ' <strong>S-Defense</strong>: ' . $row['sdefense'] .  '</div>';
-               echo '<div class="col-md-12"><hr><p>'; //#7x#10
-               if(!is_null($row['type_2'])){
-                   echo '<img align="right" src="./imgs/types/' . $row['type_2'] . '.png" />';
-               }
-               echo '<img align="right" src="./imgs/types/' . $row['type'] . '.png" />';
+               echo '<div class="col-md-12"><hr><div class="col-md-2">'; //#7x#10
                if(!empty($row['pre_evolution'])){
-                   echo '<em>Previous form -></em> <strong><em>' . $row['pre_evolution'] . '</em></strong>';
+                   echo '<p><em>Ev. From-></em> <strong><em>' . $row['pre_evolution'] . '</em></strong></p></div>';
+               } else {
+                   echo '</div>';
                }
-               echo '</p><br><br></div></div></div>';#10x#7x#5x
+               echo '<div class="col-md-9" align="center">';
+                types($row['type']);
+               echo '</div>';
+               echo '<div class="col-md-1" align="right"><img src="./imgs/types/' . $row['type'] . '.png" />';
+               if(!is_null($row['type_2'])){
+                   echo '<img src="./imgs/types/' . $row['type_2'] . '.png" /></div>';
+               } else {
+                   echo '</div>';
+               }
+            //   if(!empty($row['pre_evolution'])){
+            //       echo '<em>Previous form -></em> <strong><em>' . $row['pre_evolution'] . '</em></strong>';
+            //   }
+               echo '<br><br><br></div></div></div>';#10x#7x#5x
             }
         } else {
             echo "No Results!";
         }
         echo "</div></div>"; //#1x#2x
     }
-
-
     require_once('footer.php');
 ?>
