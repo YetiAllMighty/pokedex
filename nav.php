@@ -6,6 +6,7 @@
           <div class="input-control">
             <select name="mod" id="mod" class="form-control">
               <option value="Name">Name</option>
+              <option value="species_id">ID#</option>
               <option value="Health">Health</option>
               <option value="Attack">Attack</option>
               <option value="Defense">Defense</option>
