@@ -1,88 +1,150 @@
 <?php
-    function types ($type){
-        $normal = 1;
-        $fighting = 2;
-        $flying = 3;
-        $poison = 4;
-        $ground = 5;
-        $rock = 6;
-        $bug = 7;
-        $ghost = 8;
-        $steel = 9;
-        $fire = 10;
-        $water = 11;
-        $grass = 12;
-        $electric = 13;
-        $psychic= 14;
-        $ice = 15;
-        $dragon = 16;
-        $dark = 17;
-        $fairy = 18;
-
+    require_once('appvars.php');
+    function strengths ($type){
         switch ($type) {
-            case $normal:
-                echo "2x -> <em><strong>None</strong></em>\t";
-                // echo "1/2x -> G1<img src='./imgs/types/$rock.png' /> G2+ => <img src='./imgs/types/$steel.png' />\t<br>";
-                // echo "0x -> <img src='./imgs/types/$ghost.png' />";
+            case NORMAL :
+                echo "<strong><em>Strength</em>:</strong><br><em><strong>None</strong></em>";
+                // echo "1/2x -> G1<img src='./imgs/types/" . ROCK . ".png' /> G2+ => <img src='./imgs/types/" . STEEL . ".png' />\t<br>";
                 break;
-            case $fighting:
-                echo "2x -><img src='./imgs/types/$normal.png' /><img src='./imgs/types/$ice.png' /><img src='./imgs/types/$rock.png' />\t";
-                echo "<img src='./imgs/types/$dark.png' /><img src='./imgs/types/$steel.png' /><br>";
-                // echo "0x -> <img src='./imgs/types/$ghost.png' />";
+            case FIGHTING :
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . NORMAL . ".png' /><img src='./imgs/types/" . ICE . ".png' />";
+                echo "<br><img src='./imgs/types/" . ROCK . ".png' /><img src='./imgs/types/" . DARK . ".png' />";
+                echo "<br><img src='./imgs/types/" . STEEL . ".png' />";
                 break;
-            case $flying:
-                echo "2x -> <img src='./imgs/types/$grass.png' /><img src='./imgs/types/$fighting.png' /><img src='./imgs/types/$bug.png' />";
-                // echo "0x";
+            case  FLYING:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . GRASS . ".png' /><img src='./imgs/types/" . FIGHTING . ".png' />";
+                echo "<br><img src='./imgs/types/" . BUG . ".png' />";
                 break;
-            case $poison:
-                echo "2x -> <img src='./imgs/types/$grass.png' /><img src='./imgs/types/$fairy.png' />";
+            case POISON:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . GRASS . ".png' /><img src='./imgs/types/" . FAIRY . ".png' />";
                 break;
-            case $ground:
-                echo "2x -> <img src='./imgs/types/$fire.png' /><img src='./imgs/types/$electric.png' /><img src='./imgs/types/$poison.png' />";
-                echo "<img src='./imgs/types/$rock.png' /><img src='./imgs/types/$steel.png' />";
+            case GROUND:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . FIRE . ".png' /><img src='./imgs/types/" . ELECTRIC . ".png' />";
+                echo "<br><img src='./imgs/types/" . POISON . ".png' /><img src='./imgs/types/" . ROCK . ".png' />";
+                echo "<img src='./imgs/types/" . STEEL . ".png' />";
                 break;
-            case $rock:
-                echo "2x -> <img src='./imgs/types/$fire.png' /><img src='./imgs/types/$ice.png' /><img src='./imgs/types/$flying.png' />";
-                echo "<img src='./imgs/types/$bug.png' />";
+            case ROCK:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . FIRE . ".png' /><img src='./imgs/types/" . ICE . ".png' />";
+                echo "<img src='./imgs/types/" . FLYING . ".png' /><img src='./imgs/types/" . BUG . ".png' />";
                 break;
-            case $bug:
-                echo "2x -> <img src='./imgs/types/$grass.png' /><img src='./imgs/types/$psychic.png' />";
-                echo "<img src='./imgs/types/$dark.png' />";
+            case BUG:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . GRASS . ".png' /><img src='./imgs/types/" . PSYCHIC . ".png' />";
+                echo "<br><img src='./imgs/types/" . DARK . ".png' />";
                 break;
-            case $ghost:
-                echo "2x -> <img src='./imgs/types/$psychic.png' /><img src='./imgs/types/$ghost.png' />";
+            case GHOST:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . PSYCHIC . ".png' /><img src='./imgs/types/" . GHOST . ".png' />";
                 break;
-            case $steel:
-                echo "2x -> <img src='./imgs/types/$ice.png' /><img src='./imgs/types/$rock.png' /><img src='./imgs/types/$fairy.png' />";
+            case STEEL:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . ICE . ".png' /><img src='./imgs/types/" . ROCK . ".png' />";
+                echo "<br><img src='./imgs/types/" . FAIRY . ".png' />";
                 break;
-            case $fire:
-                echo "2x -> <img src='./imgs/types/$grass.png' /><img src='./imgs/types/$ice.png' /><img src='./imgs/types/$bug.png' />";
-                echo "<img src='./imgs/types/$steel.png' />";
+            case FIRE:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . GRASS . ".png' /><img src='./imgs/types/" . ICE . ".png' />";
+                echo "<br><img src='./imgs/types/" . BUG . ".png' /><img src='./imgs/types/" . STEEL . ".png' />";
                 break;
-            case $water:
-                echo "2x -> <img src='./imgs/types/$fire.png' /><img src='./imgs/types/$ground.png' /><img src='./imgs/types/$rock.png' />";
+            case WATER:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . FIRE . ".png' /><img src='./imgs/types/" . GROUND . ".png' />";
+                echo "<br><img src='./imgs/types/" . ROCK . ".png' />";
                 break;
-            case $grass:
-                echo "2x -> <img src='./imgs/types/$water.png' /><img src='./imgs/types/$ground.png' /><img src='./imgs/types/$rock.png' />";
+            case GRASS:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . WATER . ".png' /><img src='./imgs/types/" . GROUND . ".png' />";
+                echo "<br><img src='./imgs/types/" . ROCK . ".png' />";
                 break;
-            case $electric:
-                echo "2x -> <img src='./imgs/types/$water.png' /><img src='./imgs/types/$flying.png' />";
+            case ELECTRIC:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . WATER . ".png' /><img src='./imgs/types/" . FLYING . ".png' />";
                 break;
-            case $psychic:
-                echo "2x -> <img src='./imgs/types/$fighting.png' /><img src='./imgs/types/$poison.png' />";
+            case PSYCHIC:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . FIGHTING . ".png' /><img src='./imgs/types/" . POISON . ".png' />";
                 break;
-            case $ice:
-                echo "2x -> <img src='./imgs/types/$grass.png' /><img src='./imgs/types/$ground.png' /><img src='./imgs/types/$flying.png' />";
-                echo "<img src='./imgs/types/$dragon.png' />";
+            case ICE:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . GRASS . ".png' /><img src='./imgs/types/" . GROUND . ".png' />";
+                echo "<br><img src='./imgs/types/" . FLYING . ".png' /><img src='./imgs/types/" . DRAGON . ".png' />";
                 break;
-            case $dragon:
-                echo "2x -> <img src='./imgs/types/$dragon.png' />";
+            case DRAGON:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . DRAGON . ".png' />";
                 break;
-            case $dark:
-                echo "2x -> <img src='./imgs/types/$psychic.png' /><img src='./imgs/types/$ghost.png' />";
+            case DARK:
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . PSYCHIC . ".png' /><img src='./imgs/types/" . GHOST . ".png' />";
                 break;
-            case $fairy:
-                echo "2x -> <img src='./imgs/types/$fighting.png' /><img src='./imgs/types/$dragon.png' /><img src='./imgs/types/$dark.png' />";
+            case FAIRY :
+                echo "<strong><em>Strength</em>:</strong><br><img src='./imgs/types/" . FIGHTING . ".png' /><img src='./imgs/types/" . DRAGON . ".png' />";
+                echo "<br><img src='./imgs/types/" . DARK . ".png' />";
+                break;
+            default:
+                echo "<img src='./imgs/types/null.png' />";
+                break;
+        }
+    }
+
+    function weakness($type){
+        switch($type) {
+            case NORMAL :
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . FIGHTING . ".png' />";
+                break;
+            case FIGHTING :
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . FLYING . ".png' /><img src='./imgs/types/" . PSYCHIC . ".png' />";
+                echo "<br><img src='./imgs/types/" . FAIRY . ".png' />";
+                break;
+            case  FLYING:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . ELECTRIC . ".png' /><img src='./imgs/types/" . ICE . ".png' />";
+                echo "<br><img src='./imgs/types/" . ROCK . ".png' />";
+                break;
+            case POISON:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . GROUND . ".png' /><img src='./imgs/types/" . PSYCHIC . ".png' />";
+                break;
+            case GROUND:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . WATER . ".png' /><img src='./imgs/types/" . GRASS . ".png' />";
+                echo "<br><img src='./imgs/types/" . ICE . ".png' />";
+                break;
+            case ROCK:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . WATER . ".png' /><img src='./imgs/types/" . GRASS . ".png' />";
+                echo "<br><img src='./imgs/types/" . FIGHTING . ".png' /><img src='./imgs/types/" . GROUND . ".png' />";
+                echo "<br><img src='./imgs/types/" . STEEL . ".png' />";
+                break;
+            case BUG:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . FIRE . ".png' /><img src='./imgs/types/" . FLYING . ".png' />";
+                echo "<br><img src='./imgs/types/" . ROCK . ".png' />";
+                break;
+            case GHOST:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . GHOST . ".png' /><img src='./imgs/types/" . DARK . ".png' />";
+                break;
+            case STEEL:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . FIRE . ".png' /><img src='./imgs/types/" . FIGHTING . ".png' />";
+                echo "<br><img src='./imgs/types/" . GROUND . ".png' />";
+                break;
+            case FIRE:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . WATER . ".png' /><img src='./imgs/types/" . GROUND . ".png' />";
+                echo "<br><img src='./imgs/types/" . ROCK . ".png' />";
+                break;
+            case WATER:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . ELECTRIC . ".png' /><img src='./imgs/types/" . GRASS . ".png' />";
+                break;
+            case GRASS:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . FIRE . ".png' /><img src='./imgs/types/" . ICE . ".png' />";
+                echo "<br><img src='./imgs/types/" . POISON . ".png' /><img src='./imgs/types/" . FLYING . ".png' />";
+                echo "<br><img src='./imgs/types/" . BUG . ".png' />";
+                break;
+            case ELECTRIC:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . GROUND . ".png' />";
+                break;
+            case PSYCHIC:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . BUG . ".png' /><img src='./imgs/types/" . GHOST . ".png' />";
+                echo "<br><img src='./imgs/types/" . DARK . ".png' />";
+                break;
+            case ICE:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . FIRE . ".png' /><img src='./imgs/types/" . FIGHTING . ".png' />";
+                echo "<br><img src='./imgs/types/" . ROCK . ".png' /><img src='./imgs/types/" . STEEL . ".png' />";
+                break;
+            case DRAGON:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . ICE . ".png' /><img src='./imgs/types/" . DRAGON . ".png' />";
+                echo "<br><img src='./imgs/types/" . FAIRY . ".png' />";
+                break;
+            case DARK:
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . FIGHTING . ".png' /><img src='./imgs/types/" . BUG . ".png' />";
+                echo "<br><img src='./imgs/types/" . FAIRY . ".png' />";
+                break;
+            case FAIRY :
+                echo "<strong><em>Weakness</em>:</strong><br><img src='./imgs/types/" . POISON . ".png' /><img src='./imgs/types/" . STEEL . ".png' />";
                 break;
             default:
                 echo "<img src='./imgs/types/null.png' />";
