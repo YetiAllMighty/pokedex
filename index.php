@@ -62,7 +62,7 @@
                    }
                    echo '<div class="col-md-4" align="center" style="padding:1em;">';
                     strengths($row['type']);
-                   echo '<hr></div>';
+                   echo '</div>';
                    echo '<div class="col-md-3" align="center" style="padding:1em;">';
                     weakness($row['type']);
                    echo '</div>';
