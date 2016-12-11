@@ -66,13 +66,13 @@
                    echo '<div class="col-md-3" align="center" style="padding:1em;">';
                     weakness($row['type']);
                    echo '</div>';
-                   echo '<div class="col-md-3" align="right" style="border-left: 1px solid black"><span style="float: left;"><strong><em>Type</em></strong>:</span><img src="./imgs/types/' . $row['type'] . '.png" />';
+                   echo '<div class="col-md-3" align="right" style="border-left: 1px solid black"><hr><span style="float: left;"><strong><em>Type</em></strong>:</span><img src="./imgs/types/' . $row['type'] . '.png" />';
                    if(!is_null($row['type_2'])){
-                       echo '<img src="./imgs/types/' . $row['type_2'] . '.png" /></div>';
+                       echo '<img src="./imgs/types/' . $row['type_2'] . '.png" /><hr></div>';
                    } else {
-                       echo '</div>';
+                       echo '<hr></div>';
                    }
-                   echo '<br><br><br></div></div></div>';#10x#7x#5x
+                   echo '<br><br><br></div></div><br><hr></div>';#10x#7x#5x
                 }
             }
         } else {

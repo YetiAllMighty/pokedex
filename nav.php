@@ -17,6 +17,7 @@
             <?php $color = array('danger', 'info', 'warning', 'success'); $class= rand(0, sizeof($color)) ?>
             <input type="search" class="form-control" placeholder="I Choose You!" name="search">
             <button type="submit" name="submit" class="form-control btn btn-<?php echo $color[$class]; ?>">Search</button>
-            </div>
+          </div>
+            <div class="text-info" style="float: right;">Made By: <a href="http://www.clickaction.studio/">Kyle Thomas</a></div>
         </form>
 </nav>

@@ -1,4 +1,6 @@
 <?php
+    # TODO -> Update to accept dual type for strengths/weakness
+    # http://pokemondb.net/type/fighting
     require_once('appvars.php');
     function strengths ($type){
         switch ($type) {
